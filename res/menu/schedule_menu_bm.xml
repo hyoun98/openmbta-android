@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/refresh" 
+          android:icon="@drawable/m_refresh" 
+          android:title="@string/refresh" />    
+    <item android:id="@+id/bookmark_del"
+          android:icon="@drawable/m_bookmark_del"
+          android:title="@string/bookmark_del" />
+    <item android:id="@+id/help" 
+          android:icon="@drawable/m_help" 
+          android:title="@string/help" /> 
+</menu>

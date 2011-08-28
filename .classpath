@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="lib" path="/home/hoony/lib/AdWhirlSDK_Android_3.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/hoony/lib/CWAC-SackOfViewsAdapter.jar"/>
+	<classpathentry kind="lib" path="/home/hoony/lib/GoogleAdMobAdsSdk-4.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

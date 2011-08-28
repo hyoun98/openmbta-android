@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    android:id="@+id/layout_main" >
+  
+  <WebView 
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" 
+		android:layout_above="@+id/adwhirl_layout"
+    />
+  	<com.adwhirl.AdWhirlLayout
+        android:id="@+id/adwhirl_layout"
+        android:layout_width="320dip"
+        android:layout_height="52dip"
+        android:layout_alignParentBottom="true" 
+         android:gravity="bottom"  
+         />
+</RelativeLayout>

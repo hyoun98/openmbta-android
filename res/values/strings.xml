@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, OpenMBTA!</string>
+    <string name="app_name">OpenMBTA</string>
+    <string name="dev_server_name">"http://192.168.1.107"</string>
+    <string name="server_name">&quot;http://openmbta.org&quot;</string>
+    <string name="dev_mode">0</string>
+    <string name="grid_width">4</string>
+    <string name="help">Help</string>
+    <string name="bookmark">Add Bookmark</string>
+    <string name="bookmark_file">openmbtabm.pref</string>
+    <string name="bookmark_del">Delete Bookmark</string>
+    <string name="device_type">androidphone</string>
+    <string name="refresh">Refresh</string>
+</resources>

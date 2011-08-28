@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_paper">#AAFFFF99</color>
+    <color name="main_lines">#FF0000FF</color>
+    <color name="main_margin">#90FF0000</color>
+    <color name="main_text">#AA0000FF</color>
+    <color name="bmTitleColor">#FFFF99</color>
+    <color name="defaultTitleColor">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+</resources>

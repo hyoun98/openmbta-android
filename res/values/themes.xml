@@ -1,0 +1,15 @@
+<resources>
+	<style name="orangeTab" parent="@android:style/Widget.TabWidget">
+	   <item name="android:textAppearance">@style/orangeTextAppearance</item>
+	</style>
+	
+	<style name="orangeTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+			<item name="android:textSize">14dp</item>
+			 <item name="android:textStyle">bold</item>
+    		<item name="android:textColor">#00FF00</item>
+	</style>
+	
+	<style name="MyTheme" parent="android:Theme.Black">
+		<item name="android:tabWidgetStyle">@style/orangeTab</item>
+	</style>
+</resources>

@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	<LinearLayout 
+        android:id="@+id/linearLayout1" 
+        android:layout_width="fill_parent" 
+        android:layout_height="45dip">
+          	<ImageButton
+    		android:src="@drawable/prev_combo" 
+    		android:text="@string/hello"
+   	 		android:layout_width="wrap_content"
+    		android:layout_alignParentLeft="true"
+    		android:id="@+id/newbutton"
+    		android:clickable="true"
+    		android:onClick="imgPrev_click"
+    		android:layout_height="wrap_content"
+    		android:layout_alignParentTop="true"
+    		android:background="@null" 
+    		/>
+      		<TextView android:id="@+id/textView1" 
+        	android:layout_width="wrap_content" 
+        	android:layout_height="35dip" 
+        	android:text="Click arrows to browse times " 
+          	android:layout_centerInParent="true"
+        	android:layout_weight="1"></TextView>
+           <ImageButton
+    		android:src="@drawable/next_combo" 
+    		android:text="@string/hello"
+    		android:layout_width="wrap_content"
+    		android:layout_alignParentRight="true"
+    		android:id="@+id/newbutton"
+    		android:clickable="true"
+    		android:onClick="imgNext_click"
+    		android:layout_height="wrap_content"
+    		android:layout_alignParentTop="true"
+    		android:background="@null" 
+    		/>  
+        </LinearLayout>
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:orientation="vertical"
+    		android:layout_width="fill_parent"
+    		android:layout_height="fill_parent">
+			<ListView
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@android:id/list"
+				android:layout_width="fill_parent" 
+				android:layout_height="fill_parent"
+				android:drawSelectorOnTop="false" 
+			/>
+		</LinearLayout>
+</LinearLayout>
+
+
