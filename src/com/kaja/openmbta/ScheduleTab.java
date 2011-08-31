@@ -160,19 +160,21 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 	    setupTab(R.id.scheduleLayout, R.drawable.ic_tab_schedule, "Schedule");
 	    
 	    tabHost.setCurrentTab(1);
-	    refresh();
+	    
+	    try {
+			// Call Parse to get the data and load up the data to the adapter
+			startThread(); // calls init in the background
+			
+			//loadSchedule();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
  
 	}
 
 	private void refresh(){
-		 try {
-				// Call Parse to get the data and load up the data to the adapter
-				startThread(); // calls init in the background
-				
-				//loadSchedule();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			startActivity(getIntent()); 
+			finish();
 	}
 	
 	private void setupTab(final int tView, final int iView,  final String tag) {
@@ -589,7 +591,7 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 			   Drawable drawable = this.getResources().getDrawable(R.drawable.redpin);
 				  Drawable drawableMe = this.getResources().getDrawable(R.drawable.purplepin);
 				  Drawable drawableFirst = this.getResources().getDrawable(R.drawable.greenpin);
-			
+				  
 				  itemizedoverlay = new KajaItemizedOverlay(drawable, myMapView);
 				  itemizedoverlayImminent = new KajaItemizedOverlay(drawableMe, myMapView);
 				  itemizedoverlayFirstStops = new KajaItemizedOverlay(drawableFirst, myMapView);

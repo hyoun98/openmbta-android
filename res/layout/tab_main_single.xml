@@ -94,7 +94,7 @@
     				android:layout_height="fill_parent"
     				android:enabled="true"
     				android:clickable="true"
-    				android:apiKey="YOUR GOOGLE MAP KEY"/>
+    				android:apiKey="PUT YOUR GOOGLE MAP KEY HERE"/>
     		</RelativeLayout>
       </FrameLayout>
     		  <com.adwhirl.AdWhirlLayout
