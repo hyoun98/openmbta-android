@@ -174,6 +174,7 @@ public class Routes extends ListActivity implements Runnable, AdWhirlInterface {
 		   if  (devMode == 1){
 			   //build the string
 			   path = "/routes/" + _transType + ".json";
+			   serverN = getString(R.string.dev_server_name);
 		   }
 		   else{
 			   //production mode

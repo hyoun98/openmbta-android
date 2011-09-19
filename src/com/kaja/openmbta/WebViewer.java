@@ -23,7 +23,7 @@ public class WebViewer extends Activity {
         super.onCreate(icicle);
         setContentView(R.layout.webview);
         
-        ext_URL = "http://www.yahoo.com";
+        ext_URL = "http://openmbta.org/mobile";
         
         Bundle extras = getIntent().getExtras();
 		if (extras !=null){

@@ -115,12 +115,15 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 	private int schIndex = 0;
 	private int totalGridWidth  = 0;
 	private Boolean FIRSTTIME=true;
-	private HashMap bookmarkHash;
+	private HashMap<String, String> bookmarkHash;
 	private String bmFileName;
 	private hashFile hf;
     private TabHost tabHost; 
 	private ProgressDialog pd;
 	private Resources res;
+	
+	private Thread thread;
+	private boolean bLoading = false;
 	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -205,10 +208,11 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 	
 	private void startThread(){
 		//This method gets called to load up the data in the background.  It will put up a busy screen. 
+		bLoading = true;
 		 pd = ProgressDialog.show(this, "One moment please...", "Retrieving schedule information", true,
                  false);
-
-		 Thread thread = new Thread(this);
+		 
+		  thread = new Thread(this);
 		 thread.start();
 	} 
 	 public void run() {
@@ -240,15 +244,21 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
       				LocationManager locationManager = (LocationManager) ScheduleTab.this.getSystemService(Context.LOCATION_SERVICE);
       				lastKnownLocation = locationManager.getLastKnownLocation(locationProvider);
       				closestStopId = findClosestStop();
-      				//closestStopId = 202;  //for debug purposes
+      				//closestStopId = 669;  //for debug purposes
       				loadMap();
       			 //loadMap also overlays the route except for imminent arrivals and first stops. 
-      				overlayImminent();
-      				overlayFirstStops();
       				
-      				 mapOverlays.add(itemizedoverlay);
-      				 mapOverlays.add(itemizedoverlayImminent);
-      				 mapOverlays.add(itemizedoverlayFirstStops);
+      				
+      				mapOverlays.add(itemizedoverlay);
+      				//only add the other overlays if there is anything to overlay.
+      				
+      				if (overlayImminent()){
+      					 mapOverlays.add(itemizedoverlayImminent);
+      				}
+      				if (overlayFirstStops()){
+      					mapOverlays.add(itemizedoverlayFirstStops);
+      				}
+      				
       				 initAdWhirl(); 
       				 // Now display the balloon over the closest stop
       				 if (MARKED_CLOSEST_STOP){
@@ -265,7 +275,7 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
       					 }
       					 myListView.setSelection(closestIndex);
           				
-      				 
+      				 bLoading = false;
       			} catch (Exception e) {
       				e.printStackTrace();
       			}
@@ -306,6 +316,7 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 		    	
 		    
 			if (devMode == 1){
+				serverN = getString(R.string.dev_server_name);
 				uriTrips = "/routes/trips.";
 				uriRoute = ".";
 				uriHeadSign = ".";
@@ -881,10 +892,10 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 				}
 		  }
 
-		  private void overlayImminent() {
+		  private boolean overlayImminent() {
 			// this routine overlays the imminent stops 
 			  JSONObject stopInfoObject;
-				
+				boolean ret_boolean = false;
 			  try {
 			  JSONObject stopObject = jObject.getJSONObject("stops");
 				JSONArray stopsArray = jObject.getJSONArray("ordered_stop_ids");
@@ -904,6 +915,8 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 					String nextArrivals = "";
 				
 					if (!isFirstStop(name, stopId)) {
+							ret_boolean = true; // there will be at least one overlay, so return true.
+						
 							JSONArray nextArrivalArray = stopInfoObject.getJSONArray("next_arrivals");
 						
 						for (int b=0; b< nextArrivalArray.length(); b++) {
@@ -941,6 +954,7 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 						item_index++;
 					}
 				}	
+				
 			  } 
 				
 				catch (JSONException e) {
@@ -951,13 +965,16 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 					   Log.e("OVERLAY_IMMINENT", "Error in code:" + e.toString());
 			   		e.printStackTrace();
 				   }
+				 return ret_boolean;
 		  }
 		  
-		  private void overlayFirstStops() {
+		  private boolean overlayFirstStops() {
 				// this routine overlays the imminent stops 
 				  JSONObject stopInfoObject;
+				  boolean ret_boolean = false;
 				if (firstStopIdArray.length > 0){ //confirm that we found first_stops before doing anything
 				  try {
+					  ret_boolean = true;
 					  JSONObject stopObject = jObject.getJSONObject("stops");
 					  JSONObject regionObject = jObject.getJSONObject("region");
 					
@@ -1010,6 +1027,7 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 						e.printStackTrace();
 					}
 				}
+				return ret_boolean; // notifying true/false depending on if we found stops to overlay
 			  }
 		  private void overlayOne(int stopIndex_) {
 			  
@@ -1184,5 +1202,29 @@ public void adWhirlGeneric() {
 		 return true;	 
 	 }
  }
+ 
+ public void onPause() {
+	 // use has left activity; disable location tracking
+	 super.onPause();
+	 //only disable the gps if it has full loaded.
+	 if (!bLoading){
+		 myLocOverlay.disableMyLocation();
+		 myLocOverlay = null;
+	 }
+	 
+ }
+ 
+ public void onResume() {
+	 super.onResume();
+	 if (!FIRSTTIME){
+		 initMyLocation();
+	 }
+ }
+ 
+/* 
+ public void onDestroy(){
+	 super.onDestroy();
+	 myLocOverlay.disableMyLocation();
+ }*/
  
  }

@@ -138,6 +138,9 @@ public class OpenMBTA extends ListActivity implements AdWhirlInterface {
     	initActivity();
     	
     }
+    
+
+    
     public void initAdWhirl() {
 
   	   setContentView(R.layout.main);

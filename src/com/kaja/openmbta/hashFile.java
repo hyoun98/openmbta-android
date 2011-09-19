@@ -16,23 +16,10 @@ import android.util.Log;
 public class hashFile {
 	
 	
-
 	  public  void doSave(HashMap hm_, String bmFileName_, Context ctx_) {
 
 		  	// serializes a hashmap to file
-	        System.out.println();
-	        System.out.println("+------------------------------+");
-	        System.out.println("| doSave Method                |");
-	        System.out.println("+------------------------------+");
-	        System.out.println();
-	       
-	        
-	       // String bmFileName = getString(R.string.bookmark_file);
-	       /* HashMap h = new HashMap();
-	        h.put("string", "Oracle / Java Programming");
-	        h.put("int", new Integer(36));
-	        h.put("double", new Double(Math.PI));
-*/
+	  
 	  
 	        try {     	
 	        	
@@ -59,14 +46,7 @@ public class hashFile {
 
 	  
 	  public  HashMap doLoad(String bmFileName_, Context ctx_) {
-
-	        System.out.println();
-	        System.out.println("+------------------------------+");
-	        System.out.println("| doLoad Method                |");
-	        System.out.println("+------------------------------+");
-	        System.out.println();
-	       
-	        HashMap<String, Integer> h = null;
+		  		HashMap<String, Integer> h = null;
 
 
 	        try {
@@ -95,15 +75,7 @@ public class hashFile {
 	            e.printStackTrace();
 	        }
 
-
-	    /*    System.out.println("Printing out loaded elements...");
-	        for (Enumeration e = h.keys(); e.hasMoreElements(); ) {
-	            Object obj = e.nextElement();
-	            System.out.println("  - Element(" + obj + ") = " + h.get(obj));
-	        }
-	        System.out.println();
-*/	        
-	      
+         
 	        return h;
 	    }
 

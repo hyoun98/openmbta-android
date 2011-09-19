@@ -2,7 +2,7 @@
 <resources>
     <string name="hello">Hello World, OpenMBTA!</string>
     <string name="app_name">OpenMBTA</string>
-    <string name="dev_server_name">"http://192.168.1.107"</string>
+    <string name="dev_server_name">&quot;http://192.168.1.2&quot;</string>
     <string name="server_name">&quot;http://openmbta.org&quot;</string>
     <string name="dev_mode">0</string>
     <string name="grid_width">4</string>

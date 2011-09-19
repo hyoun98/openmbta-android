@@ -18,5 +18,6 @@
         android:layout_height="52dip"
         android:layout_alignParentBottom="true" 
          android:gravity="bottom"  
+          android:layout_centerHorizontal="true"
          />
 </RelativeLayout>
