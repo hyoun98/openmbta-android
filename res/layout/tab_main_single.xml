@@ -94,7 +94,7 @@
     				android:layout_height="fill_parent"
     				android:enabled="true"
     				android:clickable="true"
-    				android:apiKey="0POwIiC23X3f8E2R-ErIkPP0iJYGvRBuRlHc63Q"/>
+    				android:apiKey="PUT MAPVIEW KEY HERE"/>
     		</RelativeLayout>
       </FrameLayout>
     		  <com.adwhirl.AdWhirlLayout
