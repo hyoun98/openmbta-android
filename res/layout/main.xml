@@ -10,14 +10,14 @@
 		android:layout_height="wrap_content"
 		android:drawSelectorOnTop="false" 
 	    android:layout_alignParentTop="true" 
-	    android:fastScrollEnabled="true"
+		android:fastScrollEnabled="true"
 		android:layout_above="@+id/adwhirl_layout"
 			/>
 	
 	<com.adwhirl.AdWhirlLayout
         android:id="@+id/adwhirl_layout"
-        android:layout_width="320dp"
-        android:layout_height="52dp"
+        android:layout_width="320dip"
+        android:layout_height="52dip"
         android:layout_alignParentBottom="true" 
         android:gravity="bottom"  
         android:layout_centerHorizontal="true"

@@ -41,7 +41,12 @@ public class SplashScreen extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(splash_screen, OpenMBTA.class);
                 startActivity(intent);
-                stop();                    
+                // removed call to stop() because it is deprecated.
+                stop2(this);                    
+            }
+        
+            public void stop2(Thread t){
+            	t = null;
             }
         };
         

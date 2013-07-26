@@ -208,6 +208,7 @@ public class Routes extends ListActivity implements Runnable, AdWhirlInterface {
 		int size = dataArray.length();
 		myListView = new ListView[size];
 		
+		  
 		for (a = 0; a < size; a++) {
 			routeName = "";
 			routeDetails = "";
@@ -219,6 +220,8 @@ public class Routes extends ListActivity implements Runnable, AdWhirlInterface {
 			
 			int resID = R.layout.routes_row;
 			myListView[a] = (ListView)findViewById(android.R.id.list);
+			
+			
 			
 			schedItems = new ArrayList<transItem>();
 			transAdapter aa = new transAdapter(this, resID, schedItems);
@@ -357,7 +360,9 @@ public class Routes extends ListActivity implements Runnable, AdWhirlInterface {
 
 	  	   setContentView(R.layout.main);
 	  	   AdWhirlManager.setConfigExpireTimeout(1000 * 60 * 5);
-	  	
+	  	   String sKeywords = getString(R.string.adwhirl_keywords);
+	  	   Log.d("OpenMBTA", "AdWhirl keywords: " + sKeywords);
+	  	   AdWhirlTargeting.setKeywords(sKeywords);
 	  	   AdWhirlLayout adWhirlLayout = (AdWhirlLayout)findViewById(R.id.adwhirl_layout);
 
 	  	   TextView textView = new TextView(this);

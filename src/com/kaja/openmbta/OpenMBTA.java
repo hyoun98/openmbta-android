@@ -45,6 +45,7 @@ import com.adwhirl.util.AdWhirlUtil;
 import com.adwhirl.AdWhirlManager;
 import com.adwhirl.AdWhirlTargeting;
 
+
  
 
 public class OpenMBTA extends ListActivity implements AdWhirlInterface {
@@ -147,7 +148,9 @@ public class OpenMBTA extends ListActivity implements AdWhirlInterface {
   	   AdWhirlManager.setConfigExpireTimeout(1000 * 60 * 5);
   	 //  AdWhirlTargeting.setAge(23);
   	  // AdWhirlTargeting.setGender(AdWhirlTargeting.Gender.MALE);
-  	  // AdWhirlTargeting.setKeywords("online games gaming");
+  	 String sKeywords = getString(R.string.adwhirl_keywords);
+  	 Log.d("OpenMBTA", "AdWhirl keywords: " + sKeywords);
+  	  AdWhirlTargeting.setKeywords(sKeywords);
   	  // AdWhirlTargeting.setPostalCode("94123");
   	  // AdWhirlTargeting.setTestMode(false);
   	   AdWhirlLayout adWhirlLayout = (AdWhirlLayout)findViewById(R.id.adwhirl_layout);
@@ -191,7 +194,7 @@ public class OpenMBTA extends ListActivity implements AdWhirlInterface {
   	   AdWhirlAdapter.setGoogleAdSenseCompanyName("Kaja Software");
   	  // AdWhirlAdapter.setGoogleAdSenseChannel("xxxxxxx");
   	  // AdWhirlTargeting.setKeywords("My keywords");
- 
+
        
     }
     

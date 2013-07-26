@@ -59,6 +59,7 @@ import android.widget.TabHost.TabSpec;
 
 import com.adwhirl.AdWhirlLayout;
 import com.adwhirl.AdWhirlManager;
+import com.adwhirl.AdWhirlTargeting;
 import com.adwhirl.adapters.AdWhirlAdapter;
 import com.adwhirl.AdWhirlLayout.AdWhirlInterface;
 import com.adwhirl.util.AdWhirlUtil;
@@ -1084,6 +1085,9 @@ public class ScheduleTab extends MapActivity implements Runnable, AdWhirlInterfa
 	
 	   AdWhirlLayout adWhirlLayout = (AdWhirlLayout)findViewById(R.id.adwhirl_layout);
 
+	   String sKeywords = getString(R.string.adwhirl_keywords);
+	   Log.d("OpenMBTA", "AdWhirl keywords: " + sKeywords);
+	   AdWhirlTargeting.setKeywords(sKeywords);
 	   //TextView textView = new TextView(this);
 	   //RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
